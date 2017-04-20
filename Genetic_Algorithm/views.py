@@ -10,3 +10,8 @@ def index(request):
         'list': random.sample(xrange(100), 10)
     }
     return HttpResponse(template.render(context, request))
+
+
+def run(request):
+    input_sentence = request.POST['input']
+    return HttpResponse("<h1> %s </h1>" % input_sentence)

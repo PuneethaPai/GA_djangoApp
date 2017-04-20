@@ -5,6 +5,13 @@
     <title>Genetic Algorithm</title>
 </head>
 <body>
+    <form action="{% url 'run' %}" method="post">
+        {% csrf_token %}
+        Input String:
+        <input type="text" name="input" placeholder="Any Small Sentence">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
     <h1>{{list}}</h1>
 </body>
 </html>

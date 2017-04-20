@@ -20,5 +20,6 @@ from Genetic_Algorithm import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls, name='admin'),
-    url(r'^', views.index, name='index'),
+    url(r'^$', views.index, name='index'),
+    url(r'^run/$', views.run, name='run'),
 ]
