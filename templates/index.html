@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Genetic Algorithm</title>
+    {% load static %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="{% static 'read.js' %}" type="text/javascript"></script>
 </head>
 <body>
     <form action="{% url 'run' %}" method="post">
