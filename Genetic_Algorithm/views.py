@@ -1,18 +1,13 @@
 import random
 
-from django.http import HttpResponse
-from django.template import loader
+from django.http import JsonResponse
 
 
 def index(request):
-    template = loader.get_template('templates/index.html')
-    context = {
-        'new': {'some_key':'some_value'},
-        'list': random.sample(xrange(100), 10)
-    }
-    return HttpResponse(template.render(context, request))
+    response_data = {'list': random.sample(xrange(100), 10)}
+    return JsonResponse(response_data)
 
 
 def run(request):
-    input_sentence = request.POST['input']
-    return HttpResponse("<h1> %s </h1>" % input_sentence)
+    response_data = {'input': request.POST['input']}
+    return JsonResponse(response_data)
