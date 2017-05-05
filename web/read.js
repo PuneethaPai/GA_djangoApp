@@ -1,6 +1,6 @@
 function redirect(){
     input = $('#text').val();
-    fetch('http://127.0.0.1:8000/')
+    fetch('http://puneeth.pythonanywhere.com/')
     .then(function(result){
         return result.json()
     })
