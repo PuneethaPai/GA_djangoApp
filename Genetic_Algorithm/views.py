@@ -1,8 +1,8 @@
-import json
 import random
 
 from django.http import JsonResponse
-from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
 
 
 def index(request):
@@ -10,6 +10,7 @@ def index(request):
     return JsonResponse(response_data, content_type='application/json')
 
 
+@csrf_exempt
 def run(request):
     response_data = {'input': request.POST['input']}
     return JsonResponse(response_data)
