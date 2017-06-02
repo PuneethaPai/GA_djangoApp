@@ -26,7 +26,7 @@ function redirect(){
             value = {index: +item, value: list[item][1]}
             graphData.push(value)
         }
-        timer = window.setInterval(display, 100);
+        timer = window.setInterval(display, 115);
     })
     .catch(function(error){
         console.log(error);
@@ -73,6 +73,7 @@ function plotGraph(){
     svg.append("path")
       .data([data])
       .attr("class", "line")
+      .attr('id', 'graph')
       .attr("d", valueline);
 
     svg.append("g")
@@ -80,5 +81,28 @@ function plotGraph(){
       .call(d3.axisBottom(x));
 
     svg.append("g")
-      .call(d3.axisLeft(y));
+       .call(d3.axisLeft(y));
+
+    svg.append("text")
+        .attr("transform",
+        "translate(" + (width/2) + " ," +
+            (height + margin.top + 10) + ")")
+        .style("text-anchor", "middle")
+        .text("Generation Number");
+
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x",0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Fitness");
+
+
+    graph = $('#graph');
+    graph.css({
+        'fill-opacity': 0,
+        'stroke-width': '2px',
+        'stroke': 'deepskyblue'
+        });
 }
